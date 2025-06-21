@@ -1,0 +1,7 @@
+{
+  "name": "volunteerRecommend",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

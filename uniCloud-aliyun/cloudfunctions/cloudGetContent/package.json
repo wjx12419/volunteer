@@ -1,0 +1,7 @@
+{
+  "name": "cloudGetContent",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

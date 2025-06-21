@@ -1,0 +1,7 @@
+{
+  "name": "cloudAdd",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

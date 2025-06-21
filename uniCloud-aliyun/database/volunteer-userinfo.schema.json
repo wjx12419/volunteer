@@ -1,0 +1,115 @@
+{
+	"bsonType": "object",
+	"required": [
+		"name",
+		"phone",
+		"province",
+		"benke",
+		"zhuanke",
+		"score",
+		"rank",
+		"number"
+	],
+	"permission": {
+		"read": "doc.user_id == auth.uid",
+		"create": "auth.uid != null",
+		"update": "doc.user_id == auth.uid",
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（用户 ID），系统自动生成"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "文章作者ID， 参考`uni-id-users` 表",
+			"foreignKey": "uni-id-users._id",
+			"defaultValue": {
+				"$env": "uid"
+			}
+		},
+		
+		"name": {
+			"bsonType": "string",
+			"title": "姓名",
+			"description": "姓名",
+			"label": "姓名",
+			"trim": "both"
+		},
+		"phone": {
+			"bsonType": "string",
+			"title": "手机号",
+			"description": "手机号",
+			"label": "手机号"
+			
+		},
+		"province": {
+			"bsonType": "string",
+			"title": "省份",
+			"description": "省份",
+			"label": "省份",
+			"trim": "both"
+		},
+		"zhuanke": {
+			"bsonType": "string",
+			"title": "专科专业",
+			"description": "专科专业",
+			"trim": "both"
+		},
+		"benke": {
+			"bsonType": "string",
+			"title": "本科专业",
+			"description": "本科专业",
+			"trim": "both"
+		},
+		"score": {
+			"bsonType": "string",
+			"description": "分数",
+			"title": "分数",
+			"trim": "both"
+		},"rank": {
+			"bsonType": "string",
+			"description": "排名",
+			"title": "排名",
+			"trim": "both"
+		},"number": {
+			"bsonType": "string",
+			"description": "同分人数",
+			"title": "同分人数",
+			"trim": "both"
+		},
+		
+		"publish_date": {
+			"bsonType": "timestamp",
+			"title": "编辑时间",
+			"description": "编辑时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"publish_ip": {
+			"bsonType": "string",
+			"title": "发布时IP地址",
+			"description": "发表时 IP 地址",
+			"forceDefaultValue": {
+				"$env": "clientIP"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"title": "最后修改时间",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_ip": {
+			"bsonType": "string",
+			"description": "最后修改时 IP 地址",
+			"forceDefaultValue": {
+				"$env": "clientIP"
+			}
+		}
+	},
+	"version": "0.0.1"
+}

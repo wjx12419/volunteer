@@ -1,0 +1,71 @@
+{
+	"bsonType": "object",
+	"required": [
+		"major",
+		"plan",
+		"year"
+	],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（用户 ID），系统自动生成"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "文章作者ID， 参考`uni-id-users` 表",
+			"foreignKey": "uni-id-users._id",
+			"defaultValue": {
+				"$env": "uid"
+			}
+		},
+		
+		"year": {
+			"bsonType": "int",
+			"title": "数据年份",
+			"description": "数据年份",
+			"label": "数据年份"
+			
+		},
+		"note": {
+			"bsonType": "string",
+			"title": "额外说明",
+			"description": "额外说明",
+			"label": "额外说明",
+			"trim": "both",
+			"defaultValue":null
+		},
+		"major": {
+			"bsonType": "string",
+			"title": "专业名称",
+			"description": "专业名称",
+			"label": "专业名称",
+			"trim": "both"
+		},
+		"plan": {
+			"bsonType": "array",
+			"title": "学校招生计划数组",
+			"description": "学校招生计划数组"
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"title": "最后修改时间",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_ip": {
+			"bsonType": "string",
+			"description": "最后修改时 IP 地址",
+			"forceDefaultValue": {
+				"$env": "clientIP"
+			}
+		}
+	},
+	"version": "0.0.1"
+}
